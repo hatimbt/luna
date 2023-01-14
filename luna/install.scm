@@ -5,20 +5,28 @@
 ;;; Copyright © 2023 Hatim Thayyil <hatim@thayyil.net>
 
 
-(define-module (luna system install)
+(define-module (luna install)
   #:use-module (gnu system)
   #:use-module (gnu system install)
-  #:use-module (gnu packages vim)
   #:use-module (gnu packages version-control)
-  #:export (installation-os-luna))
+  #:use-module (gnu packages vim)
+  #:use-module (gnu packages linux)
+  #:use-module (gnu packages package-management)
+  #:use-module (nongnu packages linux)
+  #:export (installation-os-nonfree))
 
-(define installation-os-luna
+(define installation-os-nonfree
   (operating-system
     (inherit installation-os)
+
+	;; Full linux kernel.
+	(kernel linux)
+	(firmware (list linux-firmware))
+
+	;; Packages usefull in the live installer.
     (packages
       (append
-        (list git neovim)
+        (list git stow neovim)
         (operating-system-packages installation-os)))))
 
-installation-os-luna
-
+installation-os-nonfree
