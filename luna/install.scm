@@ -10,7 +10,6 @@
   #:use-module (gnu system install)
   #:use-module (gnu packages vim)
   #:use-module (gnu packages version-control)
-  #:use-module (gnu packages curl)
   #:export (installation-os-luna))
 
 (define installation-os-luna
