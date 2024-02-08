@@ -5,7 +5,7 @@
 ;;; Copyright © 2023 Hatim Thayyil <hatim@thayyil.net>
 
 
-(define-module (lunar install)
+(define-module (luna install)
   #:use-module (gnu system)
   #:use-module (gnu system install)
   #:use-module (gnu packages version-control)
